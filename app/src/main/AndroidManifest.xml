@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SelectedFileActivity"></activity>
+        <activity android:name=".SelectedFileActivity" />
+        <activity android:name=".FileCreateActivity"></activity>
     </application>
 
 </manifest>

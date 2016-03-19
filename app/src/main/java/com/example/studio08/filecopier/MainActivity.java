@@ -72,6 +72,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         listViewExternal.setOnItemClickListener(this);
     }
 
+    public void create(View view) {
+        Intent intent = new Intent(this, FileCreateActivity.class);
+        startActivity(intent);
+    }
+
     public void copy(View view) {
         if (selectedFile == null)
             toast("please select a file from internal storage");
@@ -109,8 +114,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //            try {
 //                fis = new FileInputStream(selectedFile);
 //                fos = new FileOutputStream(rootExternal.getPath()+selectedFile.getName());
-//                Scanner scanner = new Scanner(selectedFile);
-//                while (scanner.hasNextLine()) {
+////                Scanner scanner = new Scanner(selectedFile);
+////                while (scanner.hasNextLine()) {
 ////                    textView.append(scanner.nextLine() + "\n");
 //                };
 //            } catch (FileNotFoundException e) {

@@ -38,12 +38,29 @@
         android:background="#FFB9B9B9"
         android:textColor="#ffffff"/>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="copy to external"
-        android:id="@+id/button"
-        android:layout_gravity="bottom"
-        android:onClick="copy"
-        android:nestedScrollingEnabled="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="1dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="create file"
+            android:id="@+id/button2"
+            android:onClick="create"/>
+
+        <Button
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:text="copy to external"
+            android:id="@+id/button"
+            android:layout_gravity="bottom"
+            android:onClick="copy"
+            android:layout_weight="1"
+            android:nestedScrollingEnabled="true" />
+
+    </LinearLayout>
+
 </LinearLayout>
