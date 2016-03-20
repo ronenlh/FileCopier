@@ -81,7 +81,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (selectedFile == null)
             toast("please select a file from internal storage");
         else {
-
+            FileCopier fileCopier = new FileCopier();
+            fileCopier.execute();
         }
     }
 
@@ -111,17 +112,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         @Override
         protected Boolean doInBackground(Object[]... params) {
-//            try {
-//                fis = new FileInputStream(selectedFile);
-//                fos = new FileOutputStream(rootExternal.getPath()+selectedFile.getName());
-////                Scanner scanner = new Scanner(selectedFile);
-////                while (scanner.hasNextLine()) {
-////                    textView.append(scanner.nextLine() + "\n");
-//                };
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-
+            try {
+                fis = new FileInputStream(getFilesDir());
+                fos = new FileOutputStream(getExternalFilesDir(null));
+                byte[] buffer = new byte[1024 * 8];
+                int counter = 0;
+                while ((counter = fis.read(buffer)) != -1) {
+                    fos.write(buffer, 0 , counter);
+                }
+                fis.close();
+                fos.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             return true;
         }
     }
